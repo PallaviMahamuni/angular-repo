@@ -4,9 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from "./app.component";
 import { ProductComponent } from "./product/product.component";
 import { ProductService } from "./product/product.service";
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
-   imports:[ BrowserModule,FormsModule ],
+   imports:[ BrowserModule,FormsModule, HttpClientModule ],
    declarations : [ AppComponent, ProductComponent],
    bootstrap: [ AppComponent],
    providers:[ProductService]

@@ -1,25 +1,32 @@
 import { Component } from '@angular/core';
 import { IProduct } from "./product";
-import { ProductService } from "./product.service"
+import { ProductService } from "./product.service";
+
 
 @Component({
   selector: 'pm-products',
   templateUrl: './app/product/product-list.component.html'
 })
 export class ProductComponent{
-    pageTitle: string ="Product List";
+    errorMessage: any;
+    pageTitle: string = "Product List";
     filteredProduct: IProduct[];
     _listFilter: string = '';
     showImage: boolean;
     imageWidth: number = 50;
     imageMargin: number = 2;
-    
+    products: IProduct[];
     constructor(private _productService: ProductService){
         console.log("constructor called");
         this.filteredProduct=this.products;
-        
+        //products: IProduct[] =this._productService.getProduct();
     }
-    products: IProduct[] =this._productService.getProduct();
+    ngOnInit(): void {
+this._productService.getProduct()
+.subscribe(products => this.products= products,
+error => this.errorMessage= <any>error);
+}
+    
     toggleImage():void{
      this.showImage =! this.showImage;
         
