@@ -6,7 +6,7 @@
         <div class='row'>
             <div class='col-md-2'>Filter by:</div>
             <div class='col-md-4'>
-                <input type='text' />
+                <input type='text' [(ngModel)]='listFilter'  />
             </div>
         </div>
         <div class='row'>
@@ -32,7 +32,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of products" >
+                    <tr *ngFor="let product of filteredProduct" >
                         <td><img *ngIf='showImage' 
                                  [src]='product.imageUrl'
                                  [title]='product.productName'
