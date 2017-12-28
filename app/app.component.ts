@@ -2,9 +2,13 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'pm-app',
-  template: `<div>
-                <pm-products></pm-products>            
-             </div>`,
+  template: `
+              <ul class='nav navbar-nav'>
+              <li><a [routerLink]="['/welcome']">Home</a></li>
+              <li><a [routerLink]="['/products']">Product-list</a></li>
+              </ul>
+              <router-outlet></router-outlet>
+             `,
 })
 export class AppComponent  { 
      name = 'Angular'; 

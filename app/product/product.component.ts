@@ -4,7 +4,6 @@ import { ProductService } from "./product.service";
 
 
 @Component({
-  selector: 'pm-products',
   templateUrl: './app/product/product-list.component.html'
 })
 export class ProductComponent{
@@ -22,10 +21,9 @@ export class ProductComponent{
         //products: IProduct[] =this._productService.getProduct();
     }
     ngOnInit(): void {
-this._productService.getProduct()
-.subscribe(products => this.products= products,
+    this._productService.getProduct().subscribe(products => this.products= products,
 error => this.errorMessage= <any>error);
-}
+    }
     
     toggleImage():void{
      this.showImage =! this.showImage;

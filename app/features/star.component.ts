@@ -8,7 +8,7 @@ import { Component,Input, OnChanges } from '@angular/core';
 })
 export class StarComponent implements OnChanges{
     starWidth: number;
-
+    // @Input is used to share data between two component
     @Input() rating:number;
     
     ngOnChanges(): void {
